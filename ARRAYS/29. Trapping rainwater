@@ -1,26 +1,29 @@
-class Solution {
-public:
-    int trap(vector<int>& height)
-    {   int left = 0, right = height.size() - 1;
-        int leftMax = 0, rightMax = 0;
-        int ans = 0;
-     
-               while (left <= right)
-               { 
-                   if (height[left] < height[right]) 
-                   { 
-                       leftMax = max(leftMax, height[left]);
-                       ans += leftMax - height[left];
-                       left++;
-                   }
-                
-                 else 
+class Solution{
+
+    // Function to find the trapped water between the blocks.
+    public:
+    long long trappingWater(int a[], int n)
+    { int l=0,r=n-1,leftmax=0,rightmax=0; long long ans=0;
+    
+         while(l<=r)
+         {       if(a[l]<=a[r])
                  {
-                    rightMax = max(rightMax, height[right]);
-                    ans += rightMax - height[right];
-                    right--;
+                     if(a[l]>=leftmax)
+                        leftmax = a[l];
+                     else
+                       ans += (leftmax-a[l]);
+                    l++;
                  }
-             }
-        return ans;
+                 
+                  else
+                 {
+                     if(a[r]>=rightmax)
+                        rightmax = a[r];
+                     else
+                       ans += (rightmax-a[r]);
+                    r--;
+                 }
+         }
+         return ans;
     }
 };
