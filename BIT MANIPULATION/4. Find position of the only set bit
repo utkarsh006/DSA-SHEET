@@ -1,0 +1,22 @@
+class Solution {
+  public:
+    int findPosition(int n) 
+    {
+        int pos=1,count=0;
+            while(n>0)
+            {
+                if(n&1==1)
+                 count++;
+                else
+                 pos++;
+                 
+                 n= n>>1;
+            }
+            
+            if(count==1)
+              return pos;
+            else
+              return -1;
+          
+    }
+};
