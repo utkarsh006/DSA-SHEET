@@ -31,6 +31,28 @@ bool cyclebfs(int src, unordered_map<int,bool> &visited, unordered_map<int, list
     return false;
 }
 
+
+bool cycledfs(int node, int parent, unordered_map<int,bool> &visited, unordered_map<int, list<int>> &adj)
+{
+    visited[node]=true;
+    
+       for(auto neighbour : adj[node])
+       {
+           if(!visited[neighbour])
+           {
+               bool cycleDetected =  cycledfs(neighbour, node, visited, adj);
+              if(cycleDetected) return true;
+           }
+           
+           else if(neighbour != parent)
+           {
+               return true;
+           }
+       }
+    return false;
+}
+
+
 string cycleDetection (vector<vector<int>>& edges, int n, int m)
 {  
     // create adjacency list
