@@ -1,6 +1,6 @@
 # DSA-SHEET(450)
 
-- Array
+- [Arrays](https://github.com/utkarsh006/DSA-SHEET/tree/main/ARRAYS)
 - String 
 - Matrix
 - Searching & Sorting
